@@ -1,0 +1,258 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #5e35b1;
+  --primary-hover: #512da8;
+  --primary-focus: rgba(94, 53, 177, 0.125);
+  --primary-inverse: #FFF;
+}
+
+.hero {
+    background-image: url("../imgs/hero.jpg");
+    height: 300px;
+    background-size: cover;
+}
+
+/*html {
+    background: rgb(250,250,250);
+    background: radial-gradient(circle, rgba(250,250,250,1) 68%, rgba(145,63,251,1) 100%);
+}*/
+
+.buttons {
+    display: flex;
+    align-items: baseline;
+}
+
+.login-img {
+    background-image: url("../imgs/login.jpg");
+    background-position: center;
+    background-size: cover;
+}
+/* upload section */
+.fieldset {
+    display: flex;
+    gap: 15px;
+    align-items: baseline;
+}
+
+.fieldset > label {
+    margin-right: auto;
+}
+
+#sign-up {
+    width: 40%;
+    margin: 0 auto;
+    background-color: #2c2f34;
+}
+
+.index {
+    max-height: 300px;
+}
+
+.index-likes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.index-item {
+    flex-basis: 20%;
+}
+
+.index-title {
+    flex-basis: 80%;
+}
+
+/* feed style */
+.feed-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.feed-items {
+    flex-basis: 20%;
+    border: 2px solid #5e35b1;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    border-radius: 20px;
+    margin: 20px;
+    max-height: 250px;
+}
+
+/* post img  */
+.img-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin: 50px auto 50px auto;
+}
+
+.post-img {
+    min-width: 100%;
+}
+
+.cooktime {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: white;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-basis: 30%;
+    justify-content: space-between;
+    align-items: baseline;
+    height: 50px;
+}
+
+.post-caption {
+    display: flex;
+    justify-content: space-between;
+    background-color: #5e35b1;
+    align-content: center;
+}
+
+.post-caption > h3 {
+    color: white;
+    margin: 5px;
+}
+
+.dir-container {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dir-container > ul, ol {
+    padding: 4%;
+}
+
+.middle {
+    display: flex;
+    align-items: center;
+}
+
+label > h3 {
+    margin-top: 5%;
+}
+/* comment style */
+.comment-img {
+    margin-right: 10px;
+    width: 78px;
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    color: black;
+    border-top: 1px solid #5e35b1;
+}
+
+.date {
+    font-size: 12px;
+    color: #b4b9c2;
+    margin-left: 10px;
+}
+
+.comment {
+    display: block;
+    font-size: 15px;
+}
+
+.comment-wrapper {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-style {
+    margin-left: 10px;
+    flex-basis: 85%;
+}
+
+.profile-comment-container {
+    margin: 0;
+    display: flex;
+    padding: 10px;
+}
+/* carousel style */
+.slideshow-container {
+    position: relative;
+    max-width: 75%;
+    margin: auto;
+}
+
+.mySlides {
+    display: flex;
+    width: 100%;
+    border-top: 2px solid #d9d9d9;
+    border-bottom: 2px solid #d9d9d9;
+    margin-top: -40px;
+}
+
+.index {
+    flex-basis: 20%;
+    border: 2px solid #5e35b1;
+    padding-bottom: 10px;
+    padding-top: 30px;
+    border-radius: 20px;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: #5e35b1;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+  
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+  
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}

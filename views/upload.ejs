@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <article class="container" style="width: 40%;padding: 3%">
+        <h2>Post a recipe</h2>
+        <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="title" required>
+            </div>
+            <div>
+                <label for="ingredients">Ingredients</label>
+                <textarea id="ingredients" name="ingredients" placeholder="type in the following format: 1 egg. 2 spoons of sugar. A glass of milk"></textarea>
+            </div>
+            <div>
+                <label for="directions">Directions</label>
+                <textarea id="directions" name="directions" placeholder="type in the following format: Heat oven to 300 degrees. Eat it while its hot."></textarea>
+            </div>
+            <fieldset>
+                <fieldset class="fieldset">
+                    <label for="prepTime">Prep Time</label>
+                    <input type="number" id="prepTime" name="prepTime" style="width: 15%">
+                    <select name="prepTimeUnit" style="width: 50%">
+                        <option value="min">mins</option>
+                        <option value="hours">hours</option>
+                        <option value="days">days</option>
+                    </select>   
+                </fieldset>
+                <fieldset class="fieldset">
+                    <label for="cookTime">Cook Time</label>
+                    <input type="number" id="cookTime" name="cookTime" style="width: 15%">
+                    <select name="cookTimeUnit" style="width: 50%">
+                        <option value="min">mins</option>
+                        <option value="hours">hours</option>
+                        <option value="days">days</option>
+                    </select>
+                </fieldset>
+            </fieldset>  
+            <div>
+                <label for="imgUpload">Image</label>
+                <input type="file" id="imgageUpload" name="file">
+            </div>
+            <button type="submit" value="Upload">Submit</button>
+        </form>
+    </article>
+</body>
+</html>

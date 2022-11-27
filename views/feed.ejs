@@ -1,0 +1,16 @@
+<%- include('partials/header') -%>
+<main class="container">
+    <section class="feed-container">
+        <% for(let i = 0; i < posts.length; i++) { %>
+            <article class="container-fluid feed-items">
+                <a href="/post/<%= posts[i]._id%>">
+                    <img src="<%= posts[i].image%>">
+                </a>
+                <div class="index-likes">
+                    <span class="index-title"><%= posts[i].title%></span>
+                    <span class="index-item"><i class="fa-regular fa-thumbs-up"></i> <%= posts[i].likes.length%></span>
+                </div>
+            </article>
+        <% } %>
+    </section>
+</main>

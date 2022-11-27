@@ -1,0 +1,81 @@
+<%- include('partials/header') -%>
+    <section class="container">
+        <div class="img-container">
+            <div class="wrapper">
+                <img src="<%= post.image%>" class="post-img">
+                <div class="post-caption">
+                    <h3><%= post.title %></h3>
+                    <div class="button-wrapper">
+                        <form action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
+                            <button class="<%= !user || !post.likes.includes(user.id) ? 'fa-regular fa-thumbs-up' : 'fa-solid fa-thumbs-up' %>" type="submit"></button>
+                        </form>
+                        <span><%= post.likes.length %></span>
+                        <form action="/post/favPost/<%= post.id %>?_method=PUT" method="POST">
+                        <% if (!user || !post.favourites.includes(user.id)) { %>
+                            <button class="fa-regular fa-heart" type="submit"></button>
+                        <% } else if (post.favourites.includes(user.id)) { %>     
+                            <button class="fa-solid fa-heart" type="submit"></button>
+                        <% } %>
+                        </form>
+                        <% if (user && post.user == user.id) { %>
+                            <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST">
+                                <button class="fa fa-trash" type="submit"></button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="instructions">
+            <section class="cooktime">
+                <p class="dir-container"><strong>Prep Time:</strong> <%= post.prepTime%> <%=post.prepTimeUnit%></p>
+                <p class="dir-container"><strong>Cook Time:</strong> <%= post.cookTime%> <%=post.cookTimeUnit%></p>
+            </section>
+            <section class="dir-container">
+                <span><strong>Ingredients:</strong></span>
+                <ul>
+                    <% for( let i = 0; i < ingredients.length; i++) { %>
+                        <li><%= ingredients[i]%></li>
+                    <% } %>
+                </ul>
+                <span><strong>Directions:</strong></span>
+                <ol>
+                    <% for( let i = 0; i < directions.length; i++) { %>
+                        <li><%= directions[i]%></li>
+                    <% } %>
+                </ol>
+            </section>
+        </div>
+        <form action="/comment/createComment/<%=post._id%>" method="POST">
+            <label for="comment" class="form-label"><h3>Add a comment</h3></label>
+            <textarea type="text" class="form-control" id="comment" name="comment" placeholder="leave a comment"></textarea>
+            <button type="submit">Leave a comment</button>
+        </form>
+    </section>
+    <section class="container">
+        <% for( let i = 0; i < comments.length; i++) { %>
+            <div class="comment-container">
+                <div>
+                    <a href="#"><%= comments[i].user%></a><span class="date"><%= comments[i].createdAt%></span>
+                </div>
+                <div class="comment-wrapper">
+                    <span class="comment"><%= comments[i].comment%></span>
+                    <div>
+                        <% if(user && comments[i].likes.includes(user.id)) { %>
+                            <span id="like" class="fa-solid fa-thumbs-up" data-id="<%=comments[i]._id%>"></span>
+                            <% } else { %>  
+                            <span id="like" class="fa-regular fa-thumbs-up" data-id="<%=comments[i]._id%>"></span>
+                            <% } %>
+                            <span class="likeCount"><%= comments[i].likes.length %></span>
+                            <% if (user && comments[i].user == user.userName) { %>
+                            <span class="fa fa-trash" data-id="<%=comments[i]._id%>"></span>
+                        <% } %>
+                    </div>
+                </div>      
+            </div>
+        <% } %>  
+    </section>
+    <script src="/js/comment.js"></script>
+</body>
+</html>
+
